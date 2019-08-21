@@ -21,11 +21,15 @@ class EventDispatcher implements EventDispatcherInterface
 
     /**
      * EventDispatcher constructor.
-     * @param ListenerInterface ...$listeners
+     * @param string ...$listeners
      */
-    public function __construct(ListenerInterface ...$listeners)
+    public function __construct(string ...$listeners)
     {
-        $this->listenerProvider = new ListenerProvider($listeners);
+        $objects = [];
+        foreach ($listeners as $listener) {
+            $objects[] = new $listener;
+        }
+        $this->listenerProvider = new ListenerProvider(...$objects);
     }
 
     /**
