@@ -28,7 +28,6 @@ class EventDispatcher implements EventDispatcherInterface
         $this->listenerProvider = new ListenerProvider($listeners);
     }
 
-
     /**
      * Provide all relevant listeners with an event to process.
      *
