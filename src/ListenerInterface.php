@@ -19,7 +19,6 @@ interface ListenerInterface
     /**
      * 处理事件
      * @param object $event
-     * @return mixed
      */
     public function process(object $event);
 
